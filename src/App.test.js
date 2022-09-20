@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test("Check for elements and props", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+  expect(screen.getByRole("heading")).toHaveTextContent(/Meet the team/);
+  expect(screen.getAllByRole("button").filter(b => b.hasAttribute('alt'))).toHaveLength(screen.getAllByRole("button").length);
+})
